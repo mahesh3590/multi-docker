@@ -9,17 +9,17 @@ script:
   - docker run magesh/react-test npm test -- --coverage
 
 after_success:
-  - docker build -t magesh/multi-client ./client
-  - docker build -t magesh/multi-nginx ./nginx
-  - docker build -t magesh/multi-server ./server
-  - docker build -t masgesh/multi-worker ./worker
+  - docker build -t mak3590/multi-client ./client
+  - docker build -t mak3590/multi-nginx ./nginx
+  - docker build -t mak3590/multi-server ./server
+  - docker build -t mak3590/multi-worker ./worker
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   # Take those images and push them to docker hub
-  - docker push magesh/multi-client
-  - docker push magesh/multi-nginx
-  - docker push magesh/multi-server
-  - docker push magesh/multi-worker
+  - docker push mak3590/multi-client
+  - docker push mak3590/multi-nginx
+  - docker push mak3590/multi-server
+  - docker push mak3590/multi-worker
 
 #deploy:
 #  provider: elasticbeanstalk
